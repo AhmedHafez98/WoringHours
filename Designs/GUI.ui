@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>WorkHours</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../icons/clock.png</normaloff>../icons/clock.png</iconset>
+  </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
   </property>
