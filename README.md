@@ -1,5 +1,5 @@
 # WoringHours  
 Python, PyQt5, OPP, sqlite  
-**Not Finshied Yet**  
+**Not Finished Yet**  
 ![Main](M.PNG)
 
