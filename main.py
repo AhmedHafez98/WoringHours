@@ -17,12 +17,18 @@ class Main(QMainWindow,Designs.GUI.Ui_MainWindow):
         self.bdel.clicked.connect(self.EditFun)
         self.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
     def Enterpressed(self):
-        try:
-           nbtb=QCommandLinkButton(self.lineEdit_2.text())
-        except Exception as ex:print(ex)
+        if self.lineEdit_2.text()=='':return
+        nbtb=QCommandLinkButton(self.lineEdit_2.text())
         self.vbox.addWidget(nbtb)
         self.verticalLayout_4.addLayout(self.vbox)
         nbtb.setMaximumHeight(50)
+        self.lineEdit_2.setText('')
+        #nbtb.mousePressEvent(Qt.RightButton)
+    # def fun(self):
+    #     M=QMouseEvent()
+    #     if M.button()==Qt.RightButton:
+    #         self.Enterpressed()
+    #     return M
     def EditFun(self):
         self.vbox.itemAt(0).widget().deleteLater()
 
