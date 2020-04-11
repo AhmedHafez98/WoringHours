@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>703</width>
-    <height>416</height>
+    <height>445</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -15,6 +15,12 @@
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>300</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>WorkHours</string>
@@ -69,8 +75,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>200</width>
-          <height>357</height>
+          <width>210</width>
+          <height>386</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -82,24 +88,39 @@
              <height>40</height>
             </size>
            </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="statusTip">
+            <string>Home Window</string>
+           </property>
            <property name="text">
             <string> HOME</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit_2">
+          <widget class="QLineEdit" name="addwid">
            <property name="maximumSize">
             <size>
              <width>1000</width>
              <height>20</height>
             </size>
            </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Press &lt;span style=&quot; color:#ff0000;&quot;&gt;Enter&lt;/span&gt; to Add&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="toolTipDuration">
+            <number>-100</number>
+           </property>
+           <property name="statusTip">
+            <string>Press Enter to Add New Widget</string>
+           </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
            <property name="placeholderText">
-            <string>Add New Tag</string>
+            <string>Add New Widget</string>
            </property>
           </widget>
          </item>
@@ -119,8 +140,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>182</width>
-              <height>221</height>
+              <width>192</width>
+              <height>250</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -139,8 +160,11 @@
              <height>40</height>
             </size>
            </property>
+           <property name="statusTip">
+            <string>Comming Soon</string>
+           </property>
            <property name="text">
-            <string>Edit Tags</string>
+            <string>Smart Widget</string>
            </property>
            <property name="icon">
             <iconset>
@@ -151,7 +175,7 @@
         </layout>
        </widget>
       </widget>
-      <widget class="QTabWidget" name="tabWidget">
+      <widget class="QTabWidget" name="frame">
        <property name="minimumSize">
         <size>
          <width>470</width>
@@ -161,46 +185,26 @@
        <property name="locale">
         <locale language="English" country="UnitedStates"/>
        </property>
-       <property name="currentIndex">
-        <number>0</number>
-       </property>
-       <widget class="QWidget" name="tab_3">
+       <widget class="QWidget" name="framePage1">
         <attribute name="title">
-         <string>Tab 1</string>
+         <string/>
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <item alignment="Qt::AlignVCenter">
-            <widget class="QLabel" name="label_2">
-             <property name="minimumSize">
-              <size>
-               <width>300</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>159</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Monotype Corsiva</family>
-               <pointsize>72</pointsize>
-               <italic>true</italic>
-              </font>
-             </property>
-             <property name="text">
-              <string>WorksHours</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
+          <widget class="QLabel" name="label">
+           <property name="font">
+            <font>
+             <family>OCR A Extended</family>
+             <pointsize>48</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>WorkHours</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -222,10 +226,10 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
-  <tabstop>lineEdit_2</tabstop>
+  <tabstop>addwid</tabstop>
   <tabstop>bhome</tabstop>
   <tabstop>bdel</tabstop>
-  <tabstop>tabWidget</tabstop>
+  <tabstop>frame</tabstop>
   <tabstop>scrollArea_2</tabstop>
  </tabstops>
  <resources/>
