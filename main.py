@@ -3,7 +3,7 @@ import qdarkstyle
 from PyQt5.QtWidgets import QApplication,QMainWindow,QVBoxLayout,QWidget
 from PyQt5.uic import loadUiType
 from Designs.WidButton import Button
-from Designs import Home
+from Designs import Home,WidButton
 
 
 class Main(QMainWindow,Home.Ui_MainWindow):

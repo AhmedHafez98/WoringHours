@@ -1,61 +1,73 @@
 import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QWidget, QAction, QTabWidget, QVBoxLayout
-from PyQt5.QtGui import QIcon
-from PyQt5.QtCore import pyqtSlot
+from PyQt5.Qt import QCommandLinkButton,QAction,QApplication,QWidget,QHBoxLayout,QLineEdit,Qt
 
-
-class App(QMainWindow):
-
+from PyQt5.QtWidgets import QMenu
+from Designs import Widbu
+class mywid(QWidget,Widbu.Ui_Form):
     def __init__(self):
         super().__init__()
-        self.title = 'PyQt5 tabs - pythonspot.com'
-        self.left = 0
-        self.top = 0
-        self.width = 300
-        self.height = 200
-        self.setWindowTitle(self.title)
-        self.setGeometry(self.left, self.top, self.width, self.height)
-
-        self.table_widget = MyTableWidget(self)
-        self.setCentralWidget(self.table_widget)
-
-        self.show()
+        self.setupUi(self)
 
 
-class MyTableWidget(QWidget):
+class pushButton(QCommandLinkButton):
+    def __init__(self, name, parent = None):
+        super().__init__(name)
+        self.setContextMenuPolicy(Qt.ActionsContextMenu)
+        self.addMenuActions();
+        self.setMaximumHeight(45)
+        self.setStatusTip('Right Click to Edit')
+        self.q=mywid()
+        self.par=parent
+    def addMenuActions(self):
+        delete = QAction(self)
+        delete.setText("Delete")
+        delete.triggered.connect(self.removeButton)
+        rename=QAction(self)
+        rename.setText('Rename')
+        rename.triggered.connect(self.renameButton)
+        self.addAction(rename)
+        self.addAction(delete)
+    def removeButton(self):
+        self.q.deleteLater()
+        self.deleteLater()
+    def renameButton(self):
+        self.hide()
+        self.par.show()
+        self.par.setFocus()
 
-    def __init__(self, parent):
-        super(QWidget, self).__init__(parent)
-        self.layout = QVBoxLayout(self)
 
-        # Initialize tab screen
-        self.tabs = QTabWidget()
-        self.tab1 = QWidget()
-        self.tab2 = QWidget()
-        self.tabs.resize(300, 200)
+class line(QLineEdit):
+    def __init__(self):
+        QLineEdit.__init__(self)
+        self.setMaximumHeight(45)
+        self.setStatusTip('To Finish Press Enter')
+        self.par=QCommandLinkButton()
+        self.returnPressed.connect(self.EnterPressed)
+    def pushpar(self,But):
+        self.par=But
+        self.setText(But.text())
+        self.setSelection(0,len(self.text()))
+        self.setPlaceholderText('Enter New Name')
 
-        # Add tabs
-        self.tabs.addTab(self.tab1, "Tab 1")
-        self.tabs.addTab(self.tab2, "Tab 2")
-
-        # Create first tab
-        self.tab1.layout = QVBoxLayout(self)
-        self.pushButton1 = QPushButton("PyQt5 button")
-        self.tab1.layout.addWidget(self.pushButton1)
-        self.tab1.setLayout(self.tab1.layout)
-
-        # Add tabs to widget
-        self.layout.addWidget(self.tabs)
-        self.setLayout(self.layout)
-
-    @pyqtSlot()
-    def on_click(self):
-        print("\n")
-        for currentQTableWidgetItem in self.tableWidget.selectedItems():
-            print(currentQTableWidgetItem.row(), currentQTableWidgetItem.column(), currentQTableWidgetItem.text())
-
+    def EnterPressed(self):
+        self.hide()
+        self.par.setText(self.text())
+        self.par.show()
+class Button(QHBoxLayout):
+    def __init__(self,name):
+        QHBoxLayout.__init__(self)
+        self.t=line()
+        self.t.hide()
+        self.b=pushButton(name,self.t)
+        self.t.pushpar(self.b)
+        self.addWidget(self.t)
+        self.addWidget(self.b)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = App()
-    sys.exit(app.exec_())
+    test = QWidget()
+    test.resize(250, 150)
+    layout = Button('hafez')
+    test.setLayout(layout)
+    test.show()
+    app.exec_()

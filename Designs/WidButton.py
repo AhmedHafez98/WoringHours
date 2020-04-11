@@ -6,7 +6,6 @@ class mywid(QWidget,Widbu.Ui_Form):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.setObjectName('hafez')
 
 
 class Button(QCommandLinkButton):
@@ -19,7 +18,7 @@ class Button(QCommandLinkButton):
         self.q=mywid()
     def addMenuActions(self):
         delete = QAction(self)
-        delete.setText("remove")
+        delete.setText("Delete")
         delete.triggered.connect(self.removeButton)
         self.addAction(delete)
     def removeButton(self):
