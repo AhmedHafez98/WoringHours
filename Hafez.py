@@ -1,7 +1,7 @@
 import sys
 from PyQt5.Qt import QCommandLinkButton,QAction,QApplication,QWidget,QHBoxLayout,QLineEdit,Qt
 
-from PyQt5.QtWidgets import QMenu
+from PyQt5 import QtCore
 from Designs import Widbu
 class mywid(QWidget,Widbu.Ui_Form):
     def __init__(self):
@@ -68,6 +68,10 @@ if __name__ == '__main__':
     test = QWidget()
     test.resize(250, 150)
     layout = Button('hafez')
-    test.setLayout(layout)
+    lay=QHBoxLayout()
+    lay.addLayout(layout)
+    l=QLineEdit()
+    lay.addWidget(l)
+    test.setLayout(lay)
     test.show()
     app.exec_()

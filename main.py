@@ -20,10 +20,10 @@ class Main(QMainWindow,Home.Ui_MainWindow):
     def Enterpressed(self):
         if self.addwid.text()=='':return
         b=Button(self.addwid.text())
-        self.vbox.addWidget(b)
-        self.frame.addTab(b.q,self.addwid.text())
-        self.frame.setCurrentWidget(b.q)
-        b.clicked.connect(lambda :self.frame.setCurrentWidget(b.q))
+        self.vbox.addLayout(b)
+        self.frame.addTab(b.b.q,self.addwid.text())
+        self.frame.setCurrentWidget(b.b.q)
+        b.b.clicked.connect(lambda :self.frame.setCurrentWidget(b.b.q))
         self.verticalLayout_4.addLayout(self.vbox)
         self.addwid.setText('')
 if __name__=='__main__':
