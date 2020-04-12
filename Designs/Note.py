@@ -1,8 +1,5 @@
 import sys
-from PyQt5.Qt import QCommandLinkButton, QAction, QApplication, QWidget, QHBoxLayout, QLineEdit, Qt
-
-from PyQt5.QtWidgets import QMenu
-from Designs.mywidgetwork import mywid
+from PyQt5.Qt import QCommandLinkButton, QAction, QApplication, QWidget, QHBoxLayout, QLineEdit, Qt,QTextEdit
 
 
 
@@ -15,8 +12,9 @@ class pushButton(QCommandLinkButton):
         self.setContextMenuPolicy(Qt.ActionsContextMenu)
         self.addMenuActions();
         self.setMaximumHeight(45)
+        self.setMaximumWidth(200)
         self.setStatusTip('Right Click to Edit')
-        self.q = mywid()
+
         self.par = parent
 
     def addMenuActions(self):
@@ -30,7 +28,6 @@ class pushButton(QCommandLinkButton):
         self.addAction(delete)
 
     def removeButton(self):
-        self.q.deleteLater()
         self.deleteLater()
 
     def renameButton(self):
@@ -44,6 +41,7 @@ class line(QLineEdit):
     def __init__(self):
         QLineEdit.__init__(self)
         self.setMaximumHeight(45)
+        self.setMaximumWidth(200)
         self.setStatusTip('To Finish Press Enter')
         self.par = QCommandLinkButton()
         self.returnPressed.connect(self.EnterPressed)
